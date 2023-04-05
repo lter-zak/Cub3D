@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 11:58:10 by lter-zak          #+#    #+#             */
-/*   Updated: 2023/04/04 12:45:02 by lter-zak         ###   ########.fr       */
+/*   Updated: 2023/04/05 13:00:00 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,24 @@ void	check_argc(int argc)
 
 void	parsing(int argc, char **argv)
 {
-	int	fd;
+	int		fd;
+	int		i;
+	char	**gen_map;
 
 	fd = 0;
+	i = 0;
+	gen_map = NULL;
 	check_argc(argc);
 	check_extension(argv[1]);
-	fd = check_map_exist(argv[1]);
-	printf("fd = %d\n", fd);
+	gen_map = map_to_matrix(check_map_exist(argv[1]));
+	printf("%s", gen_map[0]);
+	// print map, chkorcnelov gluxy
+	// char **tmp;
+	// tmp = gen_map;
+	// while (gen_map[i])
+	// {
+	// 	printf("str[%d] = %s\n", i, gen_map[i]);
+	// 	i++;
+	// }
+	// gen_map= tmp;
 }
