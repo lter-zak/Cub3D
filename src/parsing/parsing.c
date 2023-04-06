@@ -6,11 +6,29 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 11:58:10 by lter-zak          #+#    #+#             */
-/*   Updated: 2023/04/05 13:00:00 by lter-zak         ###   ########.fr       */
+/*   Updated: 2023/04/06 12:21:26 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	count_map_len(char *argv)
+{
+	char	*str;
+	int		fd;
+	int		count;
+
+	count = 0;
+	fd = open(argv, O_RDONLY);
+	str = get_next_line(fd);
+	while (str)
+	{
+		free(str);
+		str = get_next_line(fd);
+		count++;
+	}
+	return (count);
+}
 
 int	check_map_exist(char *argv)
 {
@@ -61,7 +79,7 @@ void	check_argc(int argc)
 	}
 }
 
-void	parsing(int argc, char **argv)
+void	parsing(int argc, char **argv, t_info **info)
 {
 	int		fd;
 	int		i;
@@ -72,15 +90,11 @@ void	parsing(int argc, char **argv)
 	gen_map = NULL;
 	check_argc(argc);
 	check_extension(argv[1]);
-	gen_map = map_to_matrix(check_map_exist(argv[1]));
-	printf("%s", gen_map[0]);
-	// print map, chkorcnelov gluxy
-	// char **tmp;
-	// tmp = gen_map;
-	// while (gen_map[i])
-	// {
-	// 	printf("str[%d] = %s\n", i, gen_map[i]);
-	// 	i++;
-	// }
-	// gen_map= tmp;
+	gen_map = map_to_matrix(check_map_exist(argv[1]), count_map_len(argv[1]));
+	divide_gen_map(gen_map, info);
+	while (gen_map[i])
+	{
+		printf("str[%d] = %s\n", i, gen_map[i]);
+		i++;
+	}
 }

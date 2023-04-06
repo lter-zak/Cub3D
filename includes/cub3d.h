@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 12:03:08 by lter-zak          #+#    #+#             */
-/*   Updated: 2023/04/05 12:54:51 by lter-zak         ###   ########.fr       */
+/*   Updated: 2023/04/06 14:22:31 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,24 @@
 
 # define BUFFER_SIZE  1
 
-typedef struct s_map
+typedef struct s_info
 {
 	char	**map;
-	int		len;
-}			t_map;
+	char	**colors;
+	char	**texture;
+}			t_info;
 
 //parsing
-void	parsing(int argc, char **argv);
-char	**map_to_matrix(int fd);
+void	parsing(int argc, char **argv, t_info **info);
+char	**map_to_matrix(int fd, int len);
+void	divide_gen_map(char **gen_map, t_info **info);
 //libft
+char	*ft_strdup(char *s1);
 int		ft_strlen(char *str);
 char	*get_next_line(int fd);
-char	*ft_strdup(char *s1);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_substr(char *s, int start, int len);
+char	*ft_substr(char *s, int start, int len);
 int		ft_strlcpy(char *dst, char *src, int destsize);
+
 #endif
