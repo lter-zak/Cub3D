@@ -1,14 +1,14 @@
 #include "cub3d.h"
 
-void	matrix_free(char **env_split)
+void	matrix_free(char **str)
 {
 	int	j;
 
 	j = 0;
-	while (env_split && env_split[j])
+	while (str && str[j])
 	{
-		free(env_split[j]);
+		free(str[j]);
 		j++;
 	}
-	free(env_split);
+	free(str);
 }

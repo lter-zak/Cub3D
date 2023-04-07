@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 11:58:10 by lter-zak          #+#    #+#             */
-/*   Updated: 2023/04/06 12:21:26 by lter-zak         ###   ########.fr       */
+/*   Updated: 2023/04/07 12:56:14 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	check_argc(int argc)
 	}
 }
 
-void	parsing(int argc, char **argv, t_info **info)
+int	parsing(int argc, char **argv, t_info **info)
 {
 	int		fd;
 	int		i;
@@ -91,10 +91,16 @@ void	parsing(int argc, char **argv, t_info **info)
 	check_argc(argc);
 	check_extension(argv[1]);
 	gen_map = map_to_matrix(check_map_exist(argv[1]), count_map_len(argv[1]));
-	divide_gen_map(gen_map, info);
+	if(divide_gen_map(gen_map, info))
+	{
+		matrix_free(gen_map);
+		return (1);
+	}
 	while (gen_map[i])
 	{
 		printf("str[%d] = %s\n", i, gen_map[i]);
 		i++;
 	}
+	matrix_free(gen_map);
+	return (0);
 }
