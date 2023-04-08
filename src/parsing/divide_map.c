@@ -12,30 +12,41 @@
 
 #include "cub3d.h"
 
-void	color_to_info(char **color_map, t_info **info, char c)
+int	color_to_info(char **color_map, t_info **info, char c)
 {
 	int j;
-	
 	(void)info;
 	j = 0;
 	if (c == 'F')
 	{
+		if ((*info)->flag_c_f)
+		{
+			free(color_map);		
+			return (1);
+		}
 		while (color_map[j])
 		{
 			(*info)->colors_f[j] = color_map[j];
 			j++;
 		}
+		(*info)->flag_c_f = 1;
 	}
 	else if (c == 'C')
 	{
-	while (color_map[j])
-	{
-		 (*info)->colors_c[j] = color_map[j];
-		// printf("------%s\n",  (*info)->colors[i]);
-		j++;
+		if ((*info)->flag_c_c)
+		{
+			matrix_free(color_map);
+			return (1);
+		}
+		while (color_map[j])
+		{
+			(*info)->colors_c[j] = color_map[j];
+			j++;
+		}
+		(*info)->flag_c_c = 1;
 	}
-	}
-
+	free(color_map);
+	return (0);
 }
 
 int	check_color_argument(char **color_map)
@@ -57,7 +68,7 @@ int	split_color_argument(char *str, t_info **info, char c)
 {
 	char	**color_map;
 	int		len;
-	
+	(void)c;
 	(void)info;
 	len = 0;
 	color_map = ft_split(str, ',');
@@ -68,7 +79,8 @@ int	split_color_argument(char *str, t_info **info, char c)
 		matrix_free(color_map);
 		return (1);
 	}
-	color_to_info(color_map, info, c);
+	if (color_to_info(color_map, info, c))
+		return (1);
 	return (0);
 }
 
@@ -162,7 +174,7 @@ int	divide_clr_txtr(char **gen_map, t_info **info)
 	{
 		if (ft_colors(gen_map, i, info, &count))
 			return (1);
-		printf("count = %d\n", count);
+		//printf("count = %d\n", count);
 	//ft_texture(gen_map, i, j, info);
 		// printf("gen_map = %s\n", gen_map[i]);
 		i++;

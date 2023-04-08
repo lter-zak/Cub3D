@@ -27,6 +27,7 @@ int	count_map_len(char *argv)
 		str = get_next_line(fd);
 		count++;
 	}
+	close(fd);
 	return (count);
 }
 
@@ -102,5 +103,6 @@ int	parsing(int argc, char **argv, t_info **info)
 		i++;
 	}
 	matrix_free(gen_map);
+	sleep(1000);
 	return (0);
 }

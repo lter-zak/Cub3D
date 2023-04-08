@@ -24,9 +24,12 @@ typedef struct s_info
 {
 	char	**map;
 	char	**colors_f;
+	int		flag_c_f;
+	int		flag_c_c;
 	char	**colors_c;
 	char	**texture;
 }			t_info;
+
 
 //parsing
 int		parsing(int argc, char **argv, t_info **info);
