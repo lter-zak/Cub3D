@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 11:58:10 by lter-zak          #+#    #+#             */
-/*   Updated: 2023/04/07 12:56:14 by lter-zak         ###   ########.fr       */
+/*   Updated: 2023/04/11 16:58:20 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	parsing(int argc, char **argv, t_info **info)
 	check_argc(argc);
 	check_extension(argv[1]);
 	gen_map = map_to_matrix(check_map_exist(argv[1]), count_map_len(argv[1]));
-	if(divide_gen_map(gen_map, info))
+	if (divide_gen_map(gen_map, info))
 	{
 		matrix_free(gen_map);
 		return (1);
@@ -103,6 +103,6 @@ int	parsing(int argc, char **argv, t_info **info)
 		i++;
 	}
 	matrix_free(gen_map);
-	sleep(1000);
+	//sleep(1000);
 	return (0);
 }
