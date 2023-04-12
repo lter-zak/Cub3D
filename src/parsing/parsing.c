@@ -6,26 +6,44 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 11:58:10 by lter-zak          #+#    #+#             */
-/*   Updated: 2023/04/11 16:58:20 by lter-zak         ###   ########.fr       */
+/*   Updated: 2023/04/11 19:24:48 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	count_map_len2(char *str, int j, int count)
+{
+	while (str[j])
+	{
+		if (str[j] == ' ' || str[j] == '\t' || str[j] == '\n')
+			j++;
+		else
+		{
+			count++;
+			break ;
+		}
+	}
+	return (count);
+}
 
 int	count_map_len(char *argv)
 {
 	char	*str;
 	int		fd;
 	int		count;
+	int		j;
 
+	j = 0;
 	count = 0;
 	fd = open(argv, O_RDONLY);
 	str = get_next_line(fd);
 	while (str)
 	{
+		j = 0;
+		count = count_map_len2(str, j, count);
 		free(str);
 		str = get_next_line(fd);
-		count++;
 	}
 	close(fd);
 	return (count);
@@ -86,6 +104,7 @@ int	parsing(int argc, char **argv, t_info **info)
 	int		i;
 	char	**gen_map;
 
+	(void)info;
 	fd = 0;
 	i = 0;
 	gen_map = NULL;
@@ -103,6 +122,5 @@ int	parsing(int argc, char **argv, t_info **info)
 		i++;
 	}
 	matrix_free(gen_map);
-	//sleep(1000);
 	return (0);
 }

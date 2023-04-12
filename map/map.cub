@@ -1,20 +1,26 @@
-		NO 	 texture/1.xpm		
-C 		212,255,0			
-		  WE 		texture/3.xpm  
-EA 	texture/4.xpm
+		
+
+		NO 	    texture/1.xpl		
+
+
+C 			212,255,0			
+		
+		  WE 			texture/3.xpm  
+EA     	texture/4.xpm    	
 
 
 
 
-	SO 	texture/2.xpm    
+	SO texture/2.xpm 
 
 
 
 
-	F 	45,30,255	
 
 
 
+
+	F 	45,30,255   
 
 1111111111111111111111111
 1000000000110000000000001
