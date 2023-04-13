@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 11:57:59 by lter-zak          #+#    #+#             */
-/*   Updated: 2023/04/11 17:55:47 by lter-zak         ###   ########.fr       */
+/*   Updated: 2023/04/13 19:06:57 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	info->flag_tex_ea = 0;
 	if (parsing(argc, argv, &info))
 	{
-		sleep(1000);
+		//sleep(1000);
 		return (1);
 	}
 	int i = 0;
@@ -47,6 +47,6 @@ int	main(int argc, char **argv)
 	printf("texture_so=%s\n", info->texture_so);
 	printf("texture_we=%s\n", info->texture_we);
 	printf("texture_ea=%s\n", info->texture_ea);
-	sleep(1000);
+	//sleep(1000);
 	return (0);
 }

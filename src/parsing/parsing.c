@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 11:58:10 by lter-zak          #+#    #+#             */
-/*   Updated: 2023/04/11 19:24:48 by lter-zak         ###   ########.fr       */
+/*   Updated: 2023/04/12 11:36:40 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ int	count_map_len(char *argv)
 	while (str)
 	{
 		j = 0;
-		count = count_map_len2(str, j, count);
+		if (count < 6)
+			count = count_map_len2(str, j, count);
+		else
+			count++;
 		free(str);
 		str = get_next_line(fd);
 	}

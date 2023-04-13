@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 12:03:08 by lter-zak          #+#    #+#             */
-/*   Updated: 2023/04/11 19:29:03 by lter-zak         ###   ########.fr       */
+/*   Updated: 2023/04/13 21:44:33 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ int			divide_gen_map(char **gen_map, t_info **info);
 int			color_to_info(char **color_map, t_info **info, char c);
 int			ft_colors(char **gen_map, int i, t_info **info, int *count);
 int			ft_texture(char **gen_map, int i, t_info **info);
+int			check_zero(char **gen_map);
 int			texture_to_info(char *str, t_info **info, int flag);
+void		separate_map(t_info **info, char **gen_map, int index, int i);
 //libft
 char		*ft_strdup(char *s1);
 int			ft_strlen(char *str);

@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 11:21:09 by lter-zak          #+#    #+#             */
-/*   Updated: 2023/04/11 18:42:49 by lter-zak         ###   ########.fr       */
+/*   Updated: 2023/04/12 11:49:02 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,13 @@ char	**map_to_matrix(int fd, int len)
 	while (str)
 	{
 		j = 0;
-		i = map_to_matrix2(str, i, map, j);
+		if (i <= 6)
+			i = map_to_matrix2(str, i, map, j);
+		else
+		{
+			map[i] = str;
+			i++;
+		}
 		str = get_next_line(fd);
 	}
 	map[i] = NULL;
