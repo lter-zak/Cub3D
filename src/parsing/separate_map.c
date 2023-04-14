@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 20:28:50 by lter-zak          #+#    #+#             */
-/*   Updated: 2023/04/13 21:03:19 by lter-zak         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:29:16 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,33 @@ int	find_longest_str(char **gen_map, int i, int index)
 			len = tmp_len;
 	i++;
 	}
-	printf("len = %d\n", len);
 	return (len);
 }
 
 void	separate_map(t_info **info, char **gen_map, int index, int i)
 {
 	int	long_str;
-	(void)info;
+	int	j;
+	int	k;
+
+	k = 0;
 	long_str = find_longest_str(gen_map, i, index);
+	(*info)->game_map = malloc(sizeof(char *) * (index - i + 2));
+	while (i <= index)
+	{
+		(*info)->game_map[k] = malloc(sizeof(char) * (long_str + 1));
+		j = 0;
+		while (gen_map[i][j] && gen_map[i][j] != '\n')
+		{
+			(*info)->game_map[k][j] = gen_map[i][j];
+			j++;
+		}
+		while (j < long_str -1)
+		{
+			(*info)->game_map[k][j] = 'X';
+			j++;
+		}
+		i++;
+		k++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 11:57:59 by lter-zak          #+#    #+#             */
-/*   Updated: 2023/04/13 19:06:57 by lter-zak         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:09:26 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,13 @@ int	main(int argc, char **argv)
 	printf("texture_so=%s\n", info->texture_so);
 	printf("texture_we=%s\n", info->texture_we);
 	printf("texture_ea=%s\n", info->texture_ea);
+ int j = 0;
+	while((info)->game_map[j])
+	{
+		printf("++++++%s\n", (info)->game_map[j]);
+		// (*info)->game_map[0][j] = gen_map[i][j];
+		j++;
+	}
 	//sleep(1000);
 	return (0);
 }

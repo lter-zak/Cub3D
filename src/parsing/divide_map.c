@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 11:51:24 by lter-zak          #+#    #+#             */
-/*   Updated: 2023/04/13 21:26:41 by lter-zak         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:41:11 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	find_index(char **gen_map)
 			{
 				return (i);
 			}
-			else if (gen_map[i][j] == '\n' && !gen_map[i][j+1])
+			else if (gen_map[i][j] == '\n' && !gen_map[i][j + 1])
 				break ;
 		}
 	i--;
@@ -170,7 +170,7 @@ int	divide_gen_map(char **gen_map, t_info **info)
 		return (1);
 	if (divide_map(gen_map, info))
 		return (1);
-	if (check_zero(gen_map))
+	if (check_zero((*info)->game_map))
 		return (1);
 	return (0);
 }

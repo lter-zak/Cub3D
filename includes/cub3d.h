@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 12:03:08 by lter-zak          #+#    #+#             */
-/*   Updated: 2023/04/13 21:44:33 by lter-zak         ###   ########.fr       */
+/*   Updated: 2023/04/14 12:31:51 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@
 typedef struct s_info
 {
 	char	**map;
+
 	char	**colors_f;
 	int		flag_c_f;
 	char	**colors_c;
 	int		flag_c_c;
+
 	char	*texture_no;
 	int		flag_tex_no;
 	char	*texture_so;
@@ -35,6 +37,8 @@ typedef struct s_info
 	int		flag_tex_we;
 	char	*texture_ea;
 	int		flag_tex_ea;
+
+	char	**game_map;
 }			t_info;
 
 //parsing
