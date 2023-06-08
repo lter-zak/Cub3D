@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 20:00:48 by lter-zak          #+#    #+#             */
-/*   Updated: 2023/04/14 13:46:40 by lter-zak         ###   ########.fr       */
+/*   Created: 2023/05/02 12:05:56 by manykhac          #+#    #+#             */
+/*   Updated: 2023/06/05 12:39:54 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	check_up_down_y(char **gen_map, int i, int y, int flag)
 	{
 		if (gen_map[i][y] == '1')
 			return (0);
-		if (gen_map[i][y] == ' ')
+		if (gen_map[i][y] == ' ' || gen_map[i][y] == 'X')
 			return (1);
 		if (flag == 1)
 			i--;
@@ -88,7 +88,7 @@ int	check_zero(char **gen_map)
 			{
 				if (check_x(gen_map, i, j) || check_y(gen_map, i, j))
 				{
-					printf("Samthing is wrong in map");
+					printf("Samthing is wrong in map\n");
 					return (1);
 				}
 			}
