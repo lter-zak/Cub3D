@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dublicate_symbol.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manykhac <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:06:52 by manykhac          #+#    #+#             */
-/*   Updated: 2023/05/02 12:06:56 by manykhac         ###   ########.fr       */
+/*   Updated: 2023/06/17 11:40:07 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int	dublicte_symbol(char **g_map, int i, int index)
 			if (g_map[i][j] == 'S' || g_map[i][j] == 'W' || g_map[i][j] == 'E'
 				|| g_map[i][j] == 'N')
 				flag++;
-			if (flag > 1)
+			if (flag > 1 || flag == 0)
 			{
-				printf("Dublicte symbols in map\n");
+				printf("Dublicte symbols in map or player does not exist\n");
 				return (1);
 			}
 		j++;

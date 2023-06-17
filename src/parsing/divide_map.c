@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   divide_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: manykhac <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:06:35 by manykhac          #+#    #+#             */
-/*   Updated: 2023/06/08 14:09:24 by lter-zak         ###   ########.fr       */
+/*   Updated: 2023/05/02 12:06:42 by manykhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_empty_line(char **gen_map, int i, int index)
 			if ((gen_map[i][j] == ' ' && gen_map[i][j + 1] == '\n')
 			|| gen_map[i][j] == '\n')
 			{
-				printf("ERROR\n");
+				printf("ERRRR\n");
 				return (1);
 			}
 			else if (gen_map[i][j] == ' ')
